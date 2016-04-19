@@ -27,14 +27,43 @@ b)\\
 Ein Dienst ist verfügbar, wenn er zu einem gewünschten Zeitpunkt genutzt werden kann, wohingegen er auch erreichbar sein kann ohne die gewünschte Fuktion bereitzustellen.\\
 
 
-Techniken:\\
-Anonymität: Fraglich im Internet mit IPs, Lokal vllt. ohne Benutzerkonto
-Pseudonymität: Proxy
+c)\\
+Anonymität: 
+			Anonymität ist schwer bis gar nicht im Internet zu erreichen. Da jede 	
+			Internetverbindung über IP-Adressen und Protokolle aufgebaut werden, ist es so gut wie 
+			unmöglich keine eigenen Daten im Netz zu hinterlassen. Eine Möglichkeit quasi Anonym 
+			zu sein, wäre einen eigenen Server zu benutzen, um sich über diesen im Netz zu 
+			bewegen. So würden keine Verbindungsdaten an einen Drittanbieter eines Proxy-Servers 
+			weitergegeben. Die Verbindungsdaten des Servers sind jedoch trotzdem im Internet 
+			verbreitet, man ist also nur quasi anonym.\\ 
+			
+Pseudonymität: Pseudonymität kann zum Beispiel über Proxy-Server oder VPN-Verbindungen erlangt 
+				werden. Der Anbieter des Proxy-Servers kennt zwar die Verbindungsdaten des 
+				Senders, gibt diese jedoch nicht weiter. Trotzdem können an die Pseudonymsdaten 
+				Nachrichten gesandt werden, die über dem Server wieder beim Nutzer landen.\\
+				
 Vertraulichkeit: Verschlüsselung (z.B. RSA, AES, WhatsApp-Ende-zu-Ende-Verschlüsselung)
+				Vertraulichkeit kann z.B. über das Verschlüsseln des gesendeten Inhaltes erreicht 
+				werden. Verfahren hierfür wären RSA, AES, etc..\\
+				
 Verdecktheit: Steganographie (Nachrichten in JPEGs o.Ä.)
-Integrität: Hashsummen, Paritätsbits 
-Zurechenbarkeit: Digitale Signatur
-Verfügbarkeit: Cloud
+				Um seine gesendeten Inhalte verdeckt zu halten, kann man z.B. Stganographie in 
+				verschiedenen Formen anwenden. Daten lassen sich in Bildern (JPEG, Gif, ...) oder 
+				auch in Sound-Dateien (MP3, WMA, ...) einbetten und sind so quasi unsichtbar für 
+				Angreifer. Dies gilt natürlich nur wenn der Angreifer nicht vermutet, dass 
+				überhaupt Daten versteckt sind.\\
+				
+Integrität: Hashsummen, Paritätsbits
+			Die Integrität von gesendeten Daten kann z.B. durch Mitsenden von Paritätsbits oder 
+			der Hashsumme der Orginaldatei erreicht werden. Wurden die Daten manipuliert, so 
+			werden die Paritätsbits oder die Hashsumme dieser Daten nicht mit dem Original 
+			übereinstimmen. Dieser Prüfung ist nur bedingt zuverlässig, da natürlich die Daten so 
+			manipuliert werden können, das die Hashsumme und die Paritätsbits den Originalen 
+			entsprechen obwohl es sich nicht um die selben Daten handelt. Besonders bei 
+			Hashcodierung sind solche Kollisionsattacken verbreitet. \\
+
+Zurechenbarkeit: Digitale Signatur\\
+Verfügbarkeit: Cloud\\
 Erreichbarkeit: Lokal,Internet,Infrarot
 
 
