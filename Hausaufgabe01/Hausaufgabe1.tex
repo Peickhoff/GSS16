@@ -44,13 +44,40 @@ Erreichbarkeit: Lokal,Internet,Infrarot
 Rolle: Außenstehender(nur mit karte oder nur mit pin), andere Benutzer des Automaten
 Verbreitung: Ablesen an Tastatur, Aufsätze am Automaten, Diebstahl
 Verhalten: Ablesen(beobachtend), Aufsätze(aktiv), Diebstahl(Aktiv)
-Rechenkapazität: Ablesen(0), Aufsätze(0),Diebstahl(nur karte - enorm)
+Rechenkapazität: Ablesen(0), Aufsätze(0),Diebstahl(nur karte - enorm)\\
+\\
+In unserem Angreifermodell für das Abheben von Geld mittels einer EC-Karte kann der
+Angreifer entweder die Rolle eines Außenstehenden sein, der entweder eine EC-Karte
+oder eine PIN unrechtmäßig erlangt hat, oder die Rolle eines anderen Nutzers, der
+versucht Geld von einem anderen Konto abzuheben. Der außenstehende Angreifer hat die
+Möglichkeit entweder die PIN eines Benutzers passiv zu erspähen oder aktiv mittels
+Aufsatz oder ähnlichem Abzutasten. Ausserdem kann der Angreifer sich der EC-Karte
+eines Kunden bemächtigen. Solange der Angreifer nur die PIN oder die EC-Karte besitzt,
+ist das System vor einem Angriff sicher. Wenn der Angreife jedoch beides besitzt,
+versagt das Sicherheitssystem. Es wäre dem Angreifer auch möglich die fehlende PIN
+mittels Bruteforce versuch zu ermitteln, was viel Rechenkapazität benötigt und einem
+nur drei Versuche bietet, oder eine Kopie einer EC-Karte anzufertig, was wiederum
+enorme Rechenleistung benötigen würde.
+Gegen einen Angriff eines Benutzer, der versucht Geld von einem fremden Konto abzuheben,
+ist das System geschätzt, da EC-Karte und PIN nur Zugriff auf ein bestimmtes Konto erlauben.
+Natürlich könnten auch Entwickler oder Hersteller potenzielle Angreifer sein.
+In diesem Fall jedoch, könnte bereits in der Entwicklung eine Hintertür ins System
+eingebaut worden sein, womit das System schon in der Konstruktion nicht sicher wäre.
+Dies ist bei jedem System möglich und sollte im seltensten Fall in Betracht gezogen werden.
 
 \section*{Aufgabe 5: Passwortsicherheit}
+3. \textbf{Brute-Force-Angriff}\\
 
-Brute-Force-Angriff:
+Alphanumerisch mit genau 8 Zeichen:
 $62^8\div1000000\div60\div60\div24=2527,1$ Tage
 
-Bei beliebiger Passwortlänge mit Zahlen:
-$(10^1 + ... + 10^{16}) \div 1000000 \div 3600 \div 24 = 128601$ Tage
+Bei beliebiger Passwortlänge bis zu 16 Zeichen und nur  mit Zahlen:
+$(10^1 + ... + 10^{16}) \div 1000000 \div 3600 \div 24 = 128601$ Tage\\
+\\
+Wie in obigen Berechnungen zu sehen ist, hat die Länge des Passworts eine
+stärkere Auswirkung auf die Rechenzeit als die Komplexität. Dies gilt jedoch nur
+solange es sich um einen Brute-Force Angriff handelt. Bei einem Wörterbuch-Angriff
+kann die Komplexität einen größeren Einfluss auf die Berechenbarkeit als die Länge machen,
+wenn das längere Passwort nur ein einfaches Wort ist.
+
 \end{document}
