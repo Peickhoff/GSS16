@@ -42,18 +42,18 @@ Pseudonymität: Pseudonymität kann zum Beispiel über Proxy-Server oder VPN-Verbin
 				Senders, gibt diese jedoch nicht weiter. Trotzdem können an die Pseudonymsdaten 
 				Nachrichten gesandt werden, die über dem Server wieder beim Nutzer landen.\\
 				
-Vertraulichkeit: Verschlüsselung (z.B. RSA, AES, WhatsApp-Ende-zu-Ende-Verschlüsselung)
+Vertraulichkeit: 
 				Vertraulichkeit kann z.B. über das Verschlüsseln des gesendeten Inhaltes erreicht 
 				werden. Verfahren hierfür wären RSA, AES, etc..\\
 				
-Verdecktheit: Steganographie (Nachrichten in JPEGs o.Ä.)
+Verdecktheit: 
 				Um seine gesendeten Inhalte verdeckt zu halten, kann man z.B. Stganographie in 
 				verschiedenen Formen anwenden. Daten lassen sich in Bildern (JPEG, Gif, ...) oder 
 				auch in Sound-Dateien (MP3, WMA, ...) einbetten und sind so quasi unsichtbar für 
 				Angreifer. Dies gilt natürlich nur wenn der Angreifer nicht vermutet, dass 
 				überhaupt Daten versteckt sind.\\
 				
-Integrität: Hashsummen, Paritätsbits
+Integrität: 
 			Die Integrität von gesendeten Daten kann z.B. durch Mitsenden von Paritätsbits oder 
 			der Hashsumme der Orginaldatei erreicht werden. Wurden die Daten manipuliert, so 
 			werden die Paritätsbits oder die Hashsumme dieser Daten nicht mit dem Original 
@@ -62,8 +62,19 @@ Integrität: Hashsummen, Paritätsbits
 			entsprechen obwohl es sich nicht um die selben Daten handelt. Besonders bei 
 			Hashcodierung sind solche Kollisionsattacken verbreitet. \\
 
-Zurechenbarkeit: Digitale Signatur\\
-Verfügbarkeit: Cloud\\
+Zurechenbarkeit:
+				Die Zurechenbarkeit von Daten kann mittels digitaler Signatur überprüft werden. 
+				Hierzu werden aus einem privatem Schlüssel und der Nachricht eine Signatur 
+				erstellt. Diese Signatur kann, dann mittels öffentlichen Schlüssel und 
+				Verifikationsalgorithmus auf ihre Authentizität überprüft werden.\\
+				
+Verfügbarkeit:
+				Die Verfügbarkeit von Internetdiensten kann z.B. durch Backup-Server gewährleistet 
+				werden. Im Fall einer DDos Attacke, könnte dann der Backup-Server genutzt werden, 
+				während der Hauptserver wieder hochgefahren wird. Physischer Schutz gegen z.B. 
+				einen Stromausfall wäre ein Backup-Generator, der den Betrieb des Servers 
+				gewährleistet.\\
+				
 Erreichbarkeit: Lokal,Internet,Infrarot
 
 
