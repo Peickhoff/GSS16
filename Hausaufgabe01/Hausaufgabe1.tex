@@ -28,31 +28,33 @@ Ein Dienst ist verfügbar, wenn er zu einem gewünschten Zeitpunkt genutzt werden 
 
 
 c)\\
-Anonymität: 
-			Anonymität ist schwer bis gar nicht im Internet zu erreichen. Da jede Internetverbindung über IP-Adressen und Protokolle aufgebaut wird, ist es so gut wie 
+\textbf{Anonymität:} 
+			Anonymität ist schwer bis gar nicht im Internet zu erreichen. Da jede 
+			Internetverbindung über IP-Adressen und Protokolle aufgebaut wird, ist es so gut wie 
 			unmöglich keine eigenen Daten im Netz zu hinterlassen. Eine Möglichkeit quasi Anonym 
 			zu sein, wäre einen eigenen Server zu benutzen, um sich über diesen im Netz zu 
 			bewegen. So würden keine Verbindungsdaten an einen Drittanbieter eines Proxy-Servers 
 			weitergegeben. Die Verbindungsdaten des Servers sind jedoch trotzdem im Internet 
 			verbreitet, man ist also nur quasi anonym.\\ 
 			
-Pseudonymität: Pseudonymität kann zum Beispiel über Proxy-Server oder VPN-Verbindungen erlangt 
+\textbf{Pseudonymität:} 
+				Pseudonymität kann zum Beispiel über Proxy-Server oder VPN-Verbindungen erlangt 
 				werden. Der Anbieter des Proxy-Servers kennt zwar die Verbindungsdaten des 
 				Senders, gibt diese jedoch nicht weiter. Trotzdem können an die Pseudonymsdaten 
 				Nachrichten gesandt werden, die über dem Server wieder beim Nutzer landen.\\
 				
-Vertraulichkeit: 
+\textbf{Vertraulichkeit:} 
 				Vertraulichkeit kann z.B. über das Verschlüsseln des gesendeten Inhaltes erreicht 
 				werden. Verfahren hierfür wären RSA, AES, etc..\\
 				
-Verdecktheit: 
+\textbf{Verdecktheit:} 
 				Um seine gesendeten Inhalte verdeckt zu halten, kann man z.B. Stganographie in 
 				verschiedenen Formen anwenden. Daten lassen sich in Bildern (JPEG, Gif, ...) oder 
 				auch in Sound-Dateien (MP3, WMA, ...) einbetten und sind so quasi unsichtbar für 
 				Angreifer. Dies gilt natürlich nur wenn der Angreifer nicht vermutet, dass 
 				überhaupt Daten versteckt sind.\\
 				
-Integrität: 
+\textbf{Integrität:} 
 			Die Integrität von gesendeten Daten kann z.B. durch Mitsenden von Paritätsbits oder 
 			der Hashsumme der Orginaldatei erreicht werden. Wurden die Daten manipuliert, so 
 			werden die Paritätsbits oder die Hashsumme dieser Daten nicht mit dem Original 
@@ -61,30 +63,30 @@ Integrität:
 			entsprechen obwohl es sich nicht um die selben Daten handelt. Besonders bei 
 			Hashcodierung sind solche Kollisionsattacken verbreitet. \\
 
-Zurechenbarkeit:
+\textbf{Zurechenbarkeit:}
 				Die Zurechenbarkeit von Daten kann mittels digitaler Signatur überprüft werden. 
 				Hierzu werden aus einem privatem Schlüssel und der Nachricht eine Signatur 
 				erstellt. Diese Signatur kann, dann mittels öffentlichen Schlüssel und 
 				Verifikationsalgorithmus auf ihre Authentizität überprüft werden.\\
 				
-Verfügbarkeit:
+\textbf{Verfügbarkeit:}
 				Die Verfügbarkeit von Internetdiensten kann z.B. durch Backup-Server gewährleistet 
 				werden. Im Fall einer DDos Attacke, könnte dann der Backup-Server genutzt werden, 
 				während der Hauptserver wieder hochgefahren wird. Physischer Schutz gegen z.B. 
 				einen Stromausfall wäre ein Backup-Generator, der den Betrieb des Servers 
 				gewährleistet.\\
 				
-Erreichbarkeit: Um die Erreichbarkeit eines Webdienstes oder Servers gegen Angriffe auf die Verbindung der Rechner abzusichern, kann man den Dienst auf mehreren Servern laufen lassen, um die Chance zu erhöhen, dass noch mindestens einer erreichbar ist. Um eine ständige Erreichbarkeit zu gewährleisten, müsste man ausschließlich mit lokalen, physisch verbundenen Systemen arbeiten.\\
+\textbf{Erreichbarkeit:} 
+				Um die Erreichbarkeit eines Webdienstes oder Servers gegen Angriffe auf die 
+				Verbindung der Rechner abzusichern, kann man den Dienst auf mehreren Servern 
+				laufen lassen, um die Chance zu erhöhen, dass noch mindestens einer erreichbar 
+				ist. Um eine ständige Erreichbarkeit zu gewährleisten, müsste man ausschließlich 
+				mit lokalen, physisch verbundenen Systemen arbeiten.\\
 
 
 \section*{Aufgabe 3: Angreifermodell}
 
 2.\\
-Rolle: Außenstehender(nur mit karte oder nur mit pin), andere Benutzer des Automaten
-Verbreitung: Ablesen an Tastatur, Aufsätze am Automaten, Diebstahl
-Verhalten: Ablesen(beobachtend), Aufsätze(aktiv), Diebstahl(Aktiv)
-Rechenkapazität: Ablesen(0), Aufsätze(0),Diebstahl(nur karte - enorm)\\
-\\
 In unserem Angreifermodell für das Abheben von Geld mittels einer EC-Karte kann der
 Angreifer entweder die Rolle eines Außenstehenden sein, der entweder eine EC-Karte
 oder eine PIN unrechtmäßig erlangt hat, oder die Rolle eines anderen Nutzers, der
