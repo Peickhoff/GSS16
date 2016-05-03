@@ -33,6 +33,22 @@
 						einen Prozessadressraum.\\
 		\textbf{Thread:} "Leichtgewichtige" Prozesse, also kleinere Prozesse, von denen mehrere 
 						auf einem Prozessadressraum laufen. Threads sind für kurzfristige Aufgaben
-						geeignet.
+						geeignet.\\
+		
+		\item[d.] \hspace{1pt}
+			\begin{figure}[!htbp]
+				\includegraphics[scale=0.7]{Zustandsdiagramm.png}
+			\end{figure}\\
+			\textbf{Ereignisse:} a Prozess wird initialisiert, b Wert soll errechnet werden, c 
+			Problem  tritt bei Berechnung auf, d Problem wurde behoben oder verworfen, e Alle 
+			Berechnungen beendet, f Berechnung abgeschlossen und warten auf nächste Anweisung	
+			\newpage
+			\textbf{Zustände:} Rechenfähig-Der Prozess befindet sich im Hauptspeicher und erwartet
+			Berechnung durch die CPU.
+			Rechnend-Die CPU berechnet den Prozess. Pro CPU/Kern nur ein
+			Prozess berechnet werden.\\ 
+			Blockiert-Der Prozess ist aus irgendeinem Grund blockiert.Dies kann verschiedene 
+			Gründe haben, z.B. das Warten auf ein bestimmtes Event oder Benutzereingaben.\\
+			
 		\end{enumerate}
 \end{document}
