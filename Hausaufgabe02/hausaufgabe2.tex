@@ -1,5 +1,6 @@
 \documentclass[ngerman]{fbi-aufgabenblatt}
 
+\usepackage[shortlabels]{enumitem}
 % Folgende Angaben bitte anpassen
 
 \renewcommand{\Vorlesung}{GSS}
@@ -10,5 +11,28 @@
 
 \begin{document}
 	\section{Grundlagen von Betriebssystemen}
-
+		\begin{enumerate}
+		\item[a.] Die zwei Grundaufgaben eines Betriebssystems sind die \textbf{Abstraktion von 
+				Systemeigenschaften} und die \textbf{Verwaltung von Speicher}. Aus diesem Grund 
+				werden Betriebssysteme auch zum einen als \"erweiterte virtuelle Machine\" gesehen, 
+				die sich um die komplizierten Details der unterliegenden Maschine kümmert und dem 
+				Nutzer nur für ihn relevante Informationen weitergibt, sowie als Ressourcenmanager, 
+				der	Speicher, Prozesse, Geräte, etc. verwaltet.
+		\item[b.] \textbf{Ressourcenmanager:} Scheduling von Prozessen oder Partitionierung von 
+				Speicher.\\
+				\textbf{Erweiterte virtuelle Maschine:} Verwaltung eines Dateisystems oder das 
+				Bereitstellen
+				einer interaktiven graphischen Benutzeroberfläche.  
+		\end{enumerate}
+	\section{Prozesse und Threads}
+		\begin{enumerate}
+		\item[a.]
+		\textbf{Programm:} Software die auf der Hardware läuft.\\
+		\textbf{Prozess:} Das "Laufen" des Programms, bzw. die einzelnen Verarbeitungsschritte, 
+						vor	Abschluss dieses. Jeder Prozess läuft auf einem Prozessor und hat 
+						einen Prozessadressraum.\\
+		\textbf{Thread:} "Leichtgewichtige" Prozesse, also kleinere Prozesse, von denen mehrere 
+						auf einem Prozessadressraum laufen. Threads sind für kurzfristige Aufgaben
+						geeignet.
+		\end{enumerate}
 \end{document}
