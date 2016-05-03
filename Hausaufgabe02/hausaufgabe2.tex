@@ -1,6 +1,7 @@
 \documentclass[ngerman]{fbi-aufgabenblatt}
 
 \usepackage[shortlabels]{enumitem}
+\usepackage{listings}
 % Folgende Angaben bitte anpassen
 
 \renewcommand{\Vorlesung}{GSS}
@@ -51,4 +52,30 @@
 			Gründe haben, z.B. das Warten auf ein bestimmtes Event oder Benutzereingaben.\\
 			
 		\end{enumerate}
+		
+\section{n-Adressemaschine}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=1.0]{gssHA2-3.png}
+\caption{Operanden in Baumform}
+\end{figure}
+
+\begin{lstlisting}
+	Befehlsfolge			Wirkung
+
+(1)	-->	>a1<	>H1<		H1 := a1
+(2)	+ 	>a2<	>H1<		H1 := a2 + H1
+(3)	-->	>a3<	>H2<		H2 := a3
+(4)	/	>H1<	>H2<		H2 := H1 / H2
+(5)	-->	>H2<	>H1<		H1 := H2
+(6)	-->	>b2<	>H2<		H2 := b2
+(7)	-	>b1<	>H2<		H2 := b1 - H2
+(8)	-->	>b3<	>H3<		H3 := b3
+(9)	/	>H2< 	>H3<		H3 := H2 / H3
+(10)	+	>H1<	>H3<		H3 := H1 + H3
+(11)	-->	>H3<	>R<		R := H3
+\end{lstlisting}
+
+Die Anzahl der Leseaufträge an den Speicher in der obigen Rechnung beträgt 16. In den Speicher geschrieben wird 11 mal. Damit ergiebt sich eine Berechnungszeit von $16 \cdot 20 + 11 = 331$ Additionen.
 \end{document}
