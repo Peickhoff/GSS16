@@ -1,7 +1,6 @@
 \documentclass[ngerman]{fbi-aufgabenblatt}
 
 \usepackage[shortlabels]{enumitem}
-\usepackage{blockgraph}
 % Folgende Angaben bitte anpassen
 
 \renewcommand{\Vorlesung}{GSS}
@@ -12,5 +11,31 @@
 
 \begin{document}
 \section{Speicherverwaltung}
-
+	\begin{enumerate}[(a)]
+		\item Eine Seite setzt sich, wie in der Tabelle zu c, aus 4-Bit 
+		Seitennummer, 3-Bit Seitenrahmennummer und 1-Bit für Gültigkeit zusammen.
+		Eine Seite ist also 8-Bit groß.\\
+		Die Adressen aus Teilaufgabe c) verwenden einen Offset von 12 Bit.
+		Eine Kachel ist mit einem Offset von 12 Bit und einer Wortlänge von 1 Byte 				(8 Bit) $2^{12} \div 8 = 512 Bit = 64 Byte$ groß. Eine Seite ist genau so 				groß.\\		
+		\item[(c)]
+			\begin{enumerate}[i)]
+			\item 001 1111 1110 1000 = 0x1FE8
+			\item >Page Fault<
+			\item 000 0100 0111 0000 = 0x0470
+			\item 101 0001 0000 0001 = 0x5101				
+			\end{enumerate}
+		\item[(d)]
+			Pro kleine Seitengröße:
+				\begin{enumerate}
+					\item Mehr Kapazität für multiple Prozesse
+					\item Effizientere Speichernutzung
+				\end{enumerate}
+			Pro große Seitengröße:
+				\begin{enumerate}
+					\item Weniger Aufwand bei Adressberechnung
+				\end{enumerate}
+		\item[(e)]
+			Je kleiner die Seitentabellengröße ist, desto weniger Seiten können referenziert werden und desto größer sind die Seiten und Kacheln. Damit ist dann also der interne Speicher weniger fragmentiert.\\
+			Eine gute Seitengröße für die durchschnittliche Prozessgröße $p=4 MiB$ ist, durch Annäherung ermittelt, $1,6 MiB$. Mit dieser Seitengröße belegt der durchschnittliche Prozess 3 Seiten, wobei die letzte Seite halb leer bleibt. Kleinere Prozesse haben noch einen gewissen Spielraum nach unten und größere Prozesse müssen einfach mehr Seiten verwenden.\\
+	\end{enumerate}
 \end{document}
