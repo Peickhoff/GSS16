@@ -1,7 +1,30 @@
 \documentclass[ngerman]{fbi-aufgabenblatt}
 
 \usepackage[shortlabels]{enumitem}
+\usepackage{listings}
 % Folgende Angaben bitte anpassen
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+}
 
 \renewcommand{\Vorlesung}{GSS}
 \renewcommand{\Semester}{SoSe 2016}
@@ -16,7 +39,8 @@
 		Seitennummer, 3-Bit Seitenrahmennummer und 1-Bit für Gültigkeit zusammen.
 		Eine Seite ist also 8-Bit groß.\\
 		Die Adressen aus Teilaufgabe c) verwenden einen Offset von 12 Bit.
-		Eine Kachel ist mit einem Offset von 12 Bit und einer Wortlänge von 1 Byte 				(8 Bit) $2^{12} \div 8 = 512 Bit = 64 Byte$ groß. Eine Seite ist genau so 				groß.\\		
+		Eine Kachel ist mit einem Offset von 12 Bit und einer Wortlänge von 1 Byte 
+		(8 Bit) $2^{12} \div 8 = 512 Bit = 64 Byte$ groß. Eine Seite ist genau so groß.\\		
 		\item[(c)]
 			\begin{enumerate}[i)]
 			\item 001 1111 1110 1000 = 0x1FE8
@@ -35,7 +59,26 @@
 					\item Weniger Aufwand bei Adressberechnung
 				\end{enumerate}
 		\item[(e)]
-			Je kleiner die Seitentabellengröße ist, desto weniger Seiten können referenziert werden und desto größer sind die Seiten und Kacheln. Damit ist dann also der interne Speicher weniger fragmentiert.\\
-			Eine gute Seitengröße für die durchschnittliche Prozessgröße $p=4 MiB$ ist, durch Annäherung ermittelt, $1,6 MiB$. Mit dieser Seitengröße belegt der durchschnittliche Prozess 3 Seiten, wobei die letzte Seite halb leer bleibt. Kleinere Prozesse haben noch einen gewissen Spielraum nach unten und größere Prozesse müssen einfach mehr Seiten verwenden.\\
+			Je kleiner die Seitentabellengröße ist, desto weniger Seiten können referenziert werden 
+			und desto größer sind die Seiten und Kacheln. Damit ist dann also der interne Speicher 
+			weniger fragmentiert.\\
+			Eine gute Seitengröße für die durchschnittliche Prozessgröße $p=4 MiB$ ist, durch 
+			Annäherung ermittelt, $1,6 MiB$. Mit dieser Seitengröße belegt der durchschnittliche 
+			Prozess 3 Seiten, wobei die letzte Seite halb leer bleibt. Kleinere Prozesse haben noch 
+			einen gewissen Spielraum nach unten und größere Prozesse müssen einfach mehr Seiten 
+			verwenden.\\
+	\end{enumerate}
+\section{Seitenersetzungsalgorithmen}
+ 	\newpage
+\section{Synchronisation}
+	\begin{enumerate}[a)] 
+	\item 
+		\lstinputlisting[language=python,caption=Semaphore.py]{Semaphore.py}
+	\item 
+		In obiger Implementation werden Prozesse, die schreibend auf die Daten zugreifen wollen,
+		benachteiligt, da "Reader" unbegrenzt auf die Daten zugreifen können. Es wäre also möglich,
+		dass der schreibende Prozess niemals Zugriff bekommt, da immer neue "Reader" auf die Daten
+		zugreifen. Um dies zu verhindern lässt sich z.B. eine Queue einbauen, die Prozesse nur nach 
+		und nach Zugriff auf die Daten erlaubt.
 	\end{enumerate}
 \end{document}
