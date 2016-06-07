@@ -78,8 +78,8 @@
 		\lstinputlisting[language=python,caption=Semaphore.py]{Semaphore.py}
 	\item 
 		In obiger Implementation werden Prozesse, die schreibend auf die Daten zugreifen wollen,
-		benachteiligt, da "Reader" unbegrenzt auf die Daten zugreifen können. Es wäre also möglich,
-		dass der schreibende Prozess niemals Zugriff bekommt, da immer neue "Reader" auf die Daten
+		benachteiligt, da ''Reader'' unbegrenzt auf die Daten zugreifen können. Es wäre also möglich,
+		dass der schreibende Prozess niemals Zugriff bekommt, da immer neue ''Reader'' auf die Daten
 		zugreifen. Um dies zu verhindern lässt sich z.B. eine Queue einbauen, die Prozesse nur nach 
 		und nach Zugriff auf die Daten erlaubt.
 	\end{enumerate}
