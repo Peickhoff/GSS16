@@ -4,6 +4,7 @@ class Semaphore():
         self.NumberOfActiveReaders = 0 # No Active Readers
         self.Mutex = 1 # Changing NumberOfActiveReaders allowed
 
+    @synchronized
     def P(self, caller):
         type = caller.__class__.__name__
 
@@ -28,6 +29,7 @@ class Semaphore():
         else:
             return False
 
+    @synchronized        
     def V(self, caller):
         type = caller.__class__.__name__
 

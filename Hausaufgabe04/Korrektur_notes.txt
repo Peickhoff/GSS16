@@ -1,0 +1,32 @@
+
+1)
+  a)  16 Seiten benötigen 4 Bit zur Adressierung -> lg(16)=4
+      2^12 Adressen je 1 Byte Speicherwort -> 2^12 * 8 B = 4KiB
+  d)  interne Fragmentierung: Ungenutzter Speicher durch ineffiziete Seitennutzung
+      externe Fragmentierung: Prozesse auf viele Seiten verteilt
+
+      pro kleine Seiten:
+        - geringe interne Fragmentierung
+        - Prozesse die nur einzelne Phasen benötigen, können kleine Seiten verdrängen
+      pro große Seiten:
+        - weniger Neuladen von Seiten
+        - kleinere Seitentabelle
+        - Suche im Speicher braucht viel Zeit, Laden von Daten nicht
+  e) kleine Seitentabelle -> große Seiten -> Hohe interne Fragmentierung
+     große Seitentabelle -> kleine Seiten -> Geringe interne Fragmentierung
+
+     P = 4 MiB Prozessgröße
+     L = 8 B   Tabelleneintrag
+
+     s? Seitengröße
+     V = p/s*L + s/2
+         Tabelle + Fragmentierung
+      -> soll minimiert werden
+
+    1.Ableitung
+      V'(s) = PL/s^2 + 1/2 = 0
+      s = sqrt(2PL)
+        = 8 KiB
+
+3)
+  a) synchronized methods -> atomare Ausführung
