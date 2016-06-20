@@ -33,54 +33,46 @@
 \renewcommand{\Teilnehmer}{Chamier, Eickhoff, Gäde, Hölzen, Jarsembinski}
 
 \begin{document}
-\section{Speicherverwaltung}
-	\begin{enumerate}[(a)]
-		\item Eine Seite setzt sich, wie in der Tabelle zu c, aus 4-Bit 
-		Seitennummer, 3-Bit Seitenrahmennummer und 1-Bit für Gültigkeit zusammen.
-		Eine Seite ist also 8-Bit groß.\\
-		Die Adressen aus Teilaufgabe c) verwenden einen Offset von 12 Bit.
-		Eine Kachel ist mit einem Offset von 12 Bit und einer Wortlänge von 1 Byte 
-		(8 Bit) $2^{12} \div 8 = 512 Bit = 64 Byte$ groß. Eine Seite ist genau so groß.\\		
-		\item[(c)]
-			\begin{enumerate}[i)]
-			\item 001 1111 1110 1000 = 0x1FE8
-			\item >Page Fault<
-			\item 000 0100 0111 0000 = 0x0470
-			\item 101 0001 0000 0001 = 0x5101				
-			\end{enumerate}
-		\item[(d)]
-			Pro kleine Seitengröße:
-				\begin{enumerate}
-					\item Mehr Kapazität für multiple Prozesse
-					\item Effizientere Speichernutzung
-				\end{enumerate}
-			Pro große Seitengröße:
-				\begin{enumerate}
-					\item Weniger Aufwand bei Adressberechnung
-				\end{enumerate}
-		\item[(e)]
-			Je kleiner die Seitentabellengröße ist, desto weniger Seiten können referenziert werden 
-			und desto größer sind die Seiten und Kacheln. Damit ist dann also der interne Speicher 
-			weniger fragmentiert.\\
-			Eine gute Seitengröße für die durchschnittliche Prozessgröße $p=4 MiB$ ist, durch 
-			Annäherung ermittelt, $1,6 MiB$. Mit dieser Seitengröße belegt der durchschnittliche 
-			Prozess 3 Seiten, wobei die letzte Seite halb leer bleibt. Kleinere Prozesse haben noch 
-			einen gewissen Spielraum nach unten und größere Prozesse müssen einfach mehr Seiten 
-			verwenden.
-	\end{enumerate}
-\section{Seitenersetzungsalgorithmen}
- 	\begin{enumerate}[a)]
- 	\item \hspace{1pt}\\ \includegraphics[scale=0.683]{Seitenverdraengung.pdf}
- 	\end{enumerate}
-\section{Synchronisation}
-	\begin{enumerate}[a)] 
-	\item 
-		\lstinputlisting[language=python,caption=Semaphore.py]{Semaphore.py}
-	\item 
-		In obiger Implementation werden Prozesse, die schreibend auf die Daten zugreifen wollen,
-		benachteiligt, da ''Reader'' unbegrenzt auf die Daten zugreifen können. Es wäre also möglich,
-		dass der schreibende Prozess niemals Zugriff bekommt, da immer neue ''Reader'' auf die Daten
-		zugreifen. Um dies zu verhindern lässt sich z.B. eine Queue einbauen, die Prozesse nur nach 
-		und nach Zugriff auf die Daten erlaubt.
-	\end{enumerate}
+\section{Rechnersicherheit}
+\subsection{Zugangs- und Zugriffskontrolle}
+\begin{enumerate}
+\item
+Die \textbf{Zugangskontrolle} dient der Identifikation beim Zugang auf Betriebsmittel und verbietet dabei unbefugten Zugang. Es wird nur mit berechtigten Partnern kommuniziert.\\
+Die \textbf{Zugriffskontrolle} hingegen gibt einem identifizierten Kommunikationspartner nur den Zugriff auf Objekte, für die er Zugriffsrechte hat.\\
+\item
+Eine Zugangskontrolle ohne interne Zugriffkontrolle ist durchaus sinvoll, da zwar keine Unterscheidung im Zugriff auf Objekte gemacht wird, sehr wohl jedoch der Zugang zum System insgesamt reguliert wird.\\
+\item
+Für eine Zugriffskontrolle muss der Nutzer des Systems identifiziert sein, um ihm Zugriffsrechte zuordnen zu können.\\
+\end{enumerate}
+
+\subsection*{1.4 Realisierung eines Online-Ticket-Verkaufs}
+\begin{enumerate}
+\item
+\textbf{Rolle}: Außenstehender (Kunde)\\
+\textbf{Verbreitung}: Onlinetransaktion(1), Ticketübermittlung(2), andere Kunden(3), Alte Codes von Tickets auswerten(4)\\
+\textbf{Verhalten}: (1,2) passiv beobachtend, (3,4) aktiv beobachtend\\
+\textbf{Rechenkapazität}: beschränkt.\\
+\item
+Die Barcodes werden auf einem System im Kino erzeugt und auf dieses System kann man nur lokal zugreifen.\\
+Die Barcodes werden pseudozufällig erzeugt, beliebig häufiges hashen, codes sind Unikate.\\
+\\
+Kauft nun also jemand ein Ticket online, so wird auf besagtem System ein Barcode erzeugt und an diesen per Mail versandt. (Davon ausgehend, dass die Mail des Kunden sicher ist).\\
+\\
+Kommt also jetzt besagter Kunde zum Kino, so wird der Barcode vom lokalen Server abgeglichen.\\
+\end{enumerate}
+
+\section{Rechnersicherheit}
+1.\\
+
+3.\\
+Zuerst testet der Angreifer auf Länge, d.h. wenn das Passwort prüfen länger dauert, ist die Länge erreicht.\\
+Danach testet man Zeichen für Zeichen durch, von links nach rechts, jedes mal wenn ein weiteres Zeichen richtig ist, braucht das Programm länger.\\
+
+\section{Real-World-Brute-Force Angriff}
+Der Zugangscode für das svs-Submission-Tool besteht aus einem festen Header (GSS16), den wir als bekannt voraussetzen, einer Zahl von 0-9 und vier fünfstelligen Zeichenketten aus Großbuchstaben und Zahlen (36 Zeichen).\\
+Die Wahrscheinlichkeit einen der 100 vergebenen Codes zu treffen ist also:
+\begin{equation}
+P=\frac{100}{10 \cdot 36^{20}} \approx 0
+\end{equation}
+Ananas begeht Sudoku, damit das Sushi schwitzt!
 \end{document}
