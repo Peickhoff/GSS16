@@ -92,10 +92,32 @@
  \item Server1 schickt Response3 an User
  \item Verbindungsaufbau
  \end{itemize}
- \section*{5 RSA-Verfahren}
+ \section*{5. RSA-Verfahren}
  \setcounter{subsection}{1}
  \subsection{Anwendung}
- 
+ Den Entschlüsselungsexponenten $d$ haben wir folgendermaßen berechnet:\\\\
+ $p = 271 \\
+  q = 379\\
+  e = 47\\
+  N = 102709\\
+  euler(N) = (p-1)(q-1) = 270 \cdot 378 = 102060\\
+  \\
+  47 \cdot d + k \cdot 102060\\
+  \\
+  102060 = 2171 \cdot 47 + 23\\ 
+  47 = 2 \cdot 23 + 1\\
+  23 = 23 \cdot 1 + 0\\
+  \\
+  1 = 47 - 2 \cdot 23 = 47 - 2 \cdot (102060 - 2171 \cdot 47) = 4343 \cdot 47 -2 \cdot 102060\\
+    \\
+    d = 4343\\
+    k = -2	$ \\\\
+ Mithilfe eines kleinen Ruby-Programmes (sh. Anhang A) haben wir folgenden Klartext erhalten:\\
+ "Fuer die GSS-Klausur sind folgende Themen wichtig: Angreifermodelle, Schutzziele, Rainbow Tables, 
+die (Un-)Sicherheit von Passwoertern und dazugehoerige Angriffe, Zugangs- und Zugriffskontrolle, 
+Timing-Attack und Power-Analysis, Biometrische Verfahren, Grundlagen der Kryptographie, das RSA-Verfahren, 
+Authentifikationsprotokolle und natuerlich alle anderen Inhalte, die wir in der Uebung und der Vorlesung behandelt haben :-)"
+
  \begin{appendices}
  \section{RSA-Decipher}
  \lstinputlisting[caption=RSA\_Decipher.rb]{RSA_Decipher/RSA_Decipher.rb} 

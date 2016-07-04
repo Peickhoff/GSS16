@@ -1,0 +1,4 @@
+"Fuer die GSS-Klausur sind folgende Themen wichtig: Angreifermodelle, Schutzziele, Rainbow Tables, 
+die (Un-)Sicherheit von Passwoertern und dazugehoerige Angriffe, Zugangs- und Zugriffskontrolle, 
+Timing-Attack und Power-Analysis, Biometrische Verfahren, Grundlagen der Kryptographie, das RSA-Verfahren, 
+Authentifikationsprotokolle und natuerlich alle anderen Inhalte, die wir in der Uebung und der Vorlesung behandelt haben :-)"
