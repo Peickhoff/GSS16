@@ -1,6 +1,7 @@
 \documentclass[ngerman]{fbi-aufgabenblatt}
 
 \usepackage[shortlabels]{enumitem}
+\usepackage[title]{appendix}
 \usepackage{listings}
 % Folgende Angaben bitte anpassen
 
@@ -33,46 +34,70 @@
 \renewcommand{\Teilnehmer}{Chamier, Eickhoff, Gäde, Hölzen, Jarsembinski}
 
 \begin{document}
-\section{Rechnersicherheit}
-\subsection{Zugangs- und Zugriffskontrolle}
-\begin{enumerate}
-\item
-Die \textbf{Zugangskontrolle} dient der Identifikation beim Zugang auf Betriebsmittel und verbietet dabei unbefugten Zugang. Es wird nur mit berechtigten Partnern kommuniziert.\\
-Die \textbf{Zugriffskontrolle} hingegen gibt einem identifizierten Kommunikationspartner nur den Zugriff auf Objekte, für die er Zugriffsrechte hat.\\
-\item
-Eine Zugangskontrolle ohne interne Zugriffkontrolle ist durchaus sinvoll, da zwar keine Unterscheidung im Zugriff auf Objekte gemacht wird, sehr wohl jedoch der Zugang zum System insgesamt reguliert wird.\\
-\item
-Für eine Zugriffskontrolle muss der Nutzer des Systems identifiziert sein, um ihm Zugriffsrechte zuordnen zu können.\\
-\end{enumerate}
-
-\subsection*{1.4 Realisierung eines Online-Ticket-Verkaufs}
-\begin{enumerate}
-\item
-\textbf{Rolle}: Außenstehender (Kunde)\\
-\textbf{Verbreitung}: Onlinetransaktion(1), Ticketübermittlung(2), andere Kunden(3), Alte Codes von Tickets auswerten(4)\\
-\textbf{Verhalten}: (1,2) passiv beobachtend, (3,4) aktiv beobachtend\\
-\textbf{Rechenkapazität}: beschränkt.\\
-\item
-Die Barcodes werden auf einem System im Kino erzeugt und auf dieses System kann man nur lokal zugreifen.\\
-Die Barcodes werden pseudozufällig erzeugt, beliebig häufiges hashen, codes sind Unikate.\\
-\\
-Kauft nun also jemand ein Ticket online, so wird auf besagtem System ein Barcode erzeugt und an diesen per Mail versandt. (Davon ausgehend, dass die Mail des Kunden sicher ist).\\
-\\
-Kommt also jetzt besagter Kunde zum Kino, so wird der Barcode vom lokalen Server abgeglichen.\\
-\end{enumerate}
-
-\section{Rechnersicherheit}
-1.\\
-
-3.\\
-Zuerst testet der Angreifer auf Länge, d.h. wenn das Passwort prüfen länger dauert, ist die Länge erreicht.\\
-Danach testet man Zeichen für Zeichen durch, von links nach rechts, jedes mal wenn ein weiteres Zeichen richtig ist, braucht das Programm länger.\\
-
-\section{Real-World-Brute-Force Angriff}
-Der Zugangscode für das svs-Submission-Tool besteht aus einem festen Header (GSS16), den wir als bekannt voraussetzen, einer Zahl von 0-9 und vier fünfstelligen Zeichenketten aus Großbuchstaben und Zahlen (36 Zeichen).\\
-Die Wahrscheinlichkeit einen der 100 vergebenen Codes zu treffen ist also:
-\begin{equation}
-P=\frac{100}{10 \cdot 36^{20}} \approx 0
-\end{equation}
-Ananas begeht Sudoku, damit das Sushi schwitzt!
+\section{Zentrale Begriffe der Kryptographie}
+\setcounter{subsection}{1}
+\subsection{Schlüsselaustausch}
+ Bei assymetrischer Verschlüsselung müssen nur für jeden Kommunikationspartner ein öffentlicher
+ und ein privater Schlüssel erstellt werden. Bei n Personen also 2n Schlüssel. Für eine symmetrische
+ Verschlüsselung benötigt jedes Kommunkationspaar einen eigenen Schlüssel. Bei n Personen sind dies 
+ $\frac{n\cdot(n-1)}{2}$ Schlüssel.
+ \subsection{Hybride Kryptosysteme}
+ \begin{itemize}
+ \item Wenn Alice eine sehr lange Nachricht senden möchte, dann ist die Verschlüsselung mit dem 
+ relativ langen öffentlichen Schlüssel (4096-Bit) sinnvoll. Ist die Nachricht jedoch sehr lang, oder 
+ will Alice sehr viele Nachrichten verschicken, ist ein hybrides Kryptosystem effizienter, da sonst sehr
+ häufig mit dem langen öffentlichen Schlüssel verschlüsselt werden müsste.
+ \item Um ein hybrides Kryptosystem zu benutzen, schickt Alice Bob einen mit Bobs öffentlichen Schlüssel
+ verschlüsselten symmetrischen Schlüssel. Mit diesem symmetrischen Schlüsel werden dann alle 
+ nachfolgenden Nachrichten verschlüsselt. Dies ist deutlich effizienter, da der symmetrische Schlüssel
+ deutlicher kleiner (256-Bit) ist. 
+ \item ?
+ \end{itemize}
+ \section{Parkhaus}
+ \setcounter{subsection}{1}
+ \subsection{Sicherheitsanalyse}
+ Das System ist angreifbar, da anscheinend der Barcode für den Pauschalpreis vom Kino immer identisch ist,
+ und man diesen einfach auf die Karte drucken könnte. Auch der Barcode zur Bezahlbestätigung ist identisch
+ , und je nachdem wie überprüft wird, ob die Karte in den letzten 10 Minuten bezahlt wurde, kann man auch
+ diesen Barcode auf die Karte drucken. Außerdem können mit der selben Karte in einem 10 Minuten Fenster
+ beliebig viele Autos das Parkhaus verlassen.\\\\
+ \textbf{Angreifermodell:}\\
+ Rolle:Außenstehender,Benutzer\\
+ Verbreitung:Tickets kaufen oder benutzte Tickets auflesen\\
+ Verhalten:aktiv, beobachtend (Karte kaufen oder auflesen und analysieren)\\
+ Rechenkapazität:unbeschränkt\\
+ \subsection{Umsetzung mit kryptographischen Techniken}
+ Um die Parktickets gegen Betrug zu schützen, führen wir eine asymmetrische Verschlüsselung der Barcodes
+ ein. Dafür besitzt der Ticketautomat geheime Schlüssel für alle Händler mit Sonderangeboten. Die 
+ Einzelhändler nehmen den einzigartigen Barcode des Tickets (erster oder zweiter Block von rechts) und 
+ verschlüsseln diesen mit ihrem öffentlichen Schlüssel. Anschlließend kann der Ticketautomat mit dem 
+ zugehörigen privaten Schlüssel, den Code auf Echtheit prüfen. Diese Verschlüsselung basiert auf RSA. 
+ \section{Authentifizierungsprotokolle}
+ \setcounter{subsection}{1}
+ \subsection{Authentifikationssytem auf Basis indeterministischer symmetrischer Verschlüsselung}
+ Die indeterministische symmetrische Verschlüsselung schützt vor Angriffen auf den Klartext von Nutzername
+ und Passwort. Jedoch schützt das Verfahren nicht vor einem Maskeraden-Angriff. Ein Man-In-The-Middle kann 
+ das Verschlüsselte Benutzer-Passwort-Paar abfangen und dieses benutzen, um sich beim Server zu 
+ authentifizieren. Da die Zufallszahl nicht vorher an den Server übertragen wird, kann der Server diese 
+ auch nicht von jeder anderer Zahl unterscheiden.
+ \subsection{Challenge-Response-Authentifizierug}
+ Bei der Challenge-Response-Authentifizierung wird beim Verbindungsaufbau zwischen User und Server gegenseitig die Echtheit durch das Stellen und die Berechnung von sogenannten Challenges und Responses gewährleistet. Die Verbindung wird initiiert mit einer Challenge des Users, auf die der Server mit der korrekten Response und einer neuen Challenge für den User antwortet. Der User berechnet die Response für die zweite Challenge und schickt diese mit einer dritten Challenge zurück zum Server. Dieser antwortet mit einer letzten Response und ist diese korrekt, wird die Verbindung aufgebaut.\\
+ Dieses System ist angreifbar, indem man folgendes tut:
+ \begin{itemize}
+ \item User schickt Challenge1 an Server1
+ \item Server1 schickt Challenge2 und Response1 an User
+ \item User schickt Challenge2 an Server2
+ \item Server2 schickt Challenge3 und Response2 an User
+ \item User schickt Response2 und Challenge3 an Server1
+ \item Server1 schickt Response3 an User
+ \item Verbindungsaufbau
+ \end{itemize}
+ \section*{5 RSA-Verfahren}
+ \setcounter{subsection}{1}
+ \subsection{Anwendung}
+ 
+ \begin{appendices}
+ \section{RSA-Decipher}
+ \lstinputlisting[caption=RSA\_Decipher.rb]{RSA_Decipher/RSA_Decipher.rb} 
+ \end{appendices}
 \end{document}
