@@ -81,8 +81,10 @@
  authentifizieren. Da die Zufallszahl nicht vorher an den Server übertragen wird, kann der Server diese 
  auch nicht von jeder anderer Zahl unterscheiden.
  \subsection{Challenge-Response-Authentifizierug}
- Bei der Challenge-Response-Authentifizierung wird beim Verbindungsaufbau zwischen User und Server gegenseitig die Echtheit durch das Stellen und die Berechnung von sogenannten Challenges und Responses gewährleistet. Die Verbindung wird initiiert mit einer Challenge des Users, auf die der Server mit der korrekten Response und einer neuen Challenge für den User antwortet. Der User berechnet die Response für die zweite Challenge und schickt diese mit einer dritten Challenge zurück zum Server. Dieser antwortet mit einer letzten Response und ist diese korrekt, wird die Verbindung aufgebaut.\\
- Dieses System ist angreifbar, indem man folgendes tut:
+ Bei der Challenge-Response-Authentifizierung wird beim Verbindungsaufbau zwischen User und Server gegenseitig die Echtheit durch das Stellen und die Berechnung von sogenannten Challenges und Responses gewährleistet. Die Verbindung wird initiiert mit einer Challenge des Users, auf die der Server mit der korrekten Response und einer neuen Challenge für den User antwortet. Der User berechnet die Response für die zweite Challenge und schickt diese mit einer dritten Challenge zurück zum Server. Dieser antwortet mit einer letzten Response und ist diese korrekt, wird die Verbindung aufgebaut. Durch dieses Verfahren ist
+ es nicht mehr möglich wie im vorherigen Verfahren Mittels einfacher MITM-Attacke sich als einen anderen
+ Klienten auszugeben, da der Angreifer die Response nicht berechnen kann.\\
+ Dieses System ist jedoch angreifbar, indem man folgendes tut:
  \begin{itemize}
  \item User schickt Challenge1 an Server1
  \item Server1 schickt Challenge2 und Response1 an User
